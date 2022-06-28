@@ -1,0 +1,10 @@
+requests
+fastapi
+uvicorn[standard] 
+python-doctr[torch]
+matplotlib
+numpy
+vietocr
+pandas
+typing
+python-multipart
