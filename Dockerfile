@@ -6,6 +6,13 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./app /code/app
+RUN apt-get update
+RUN apt-get install ffmpeg libsm6 libxext6  -y
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+EXPOSE 8000
+
+COPY ./app /code
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--reload"]
+
+# CMD ["uvicorn", "main:app", "--reload"]
